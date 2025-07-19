@@ -2,38 +2,40 @@ task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-
-
-
-
 match priority:
     case "high":
-        reminder = "Reminder"
+        
         if time_bound == "yes":
-            massage = " that requires immediate attention today!"
+            reminder = "Reminder"
+            message = " that requires immediate attention today!"
         elif time_bound == "no":
-            massage = ". Consider completing it when you have free time."
+            reminder = "Note"
+            message = ". Consider completing it when you have free time."
         else:
-            massage = ". Please specify if it is time-bound or not."
-        print(f"{reminder}: '{task}' is a {priority} priority{massage}")
+            message = ". Please specify if it is time-bound or not."
+        print(f"{reminder}: '{task}' is a {priority} priority{message}")
     case "medium":
-        reminder = "Reminder"
+        
         if time_bound == "yes":
-            massage = " that requires immediate attention today!"
+            reminder = "Reminder"
+            message = " that requires immediate attention today!"
         elif time_bound == "no":
-            massage = ". Consider completing it when you have free time."
+            reminder = "Note"
+            message = ". Consider completing it when you have free time."
         else:
-            massage = ". Please specify if it is time-bound or not."
-        print(f"{reminder}: '{task}' is a {priority} priority{massage}")
+            message = ". Please specify if it is time-bound or not."
+        print(f"{reminder}: '{task}' is a {priority} priority{message}")
     case "low":
-        reminder = "Note"
+        
         if time_bound == "yes":
-            massage = " that requires immediate attention today!"
+            reminder = "Reminder"
+            message = " that requires immediate attention today!"
         elif time_bound == "no":
-            massage = ". Consider completing it when you have free time."
+            reminder = "Note"
+            message = ". Consider completing it when you have free time."
         else:
-            massage = ". Please specify if it is time-bound or not."
-        print(f"{reminder}: '{task}' is a {priority} priority{massage}")
+            message = ". Please specify if it is time-bound or not."
+        print(f"{reminder}: '{task}' is a {priority} priority{message}")
     case _:
         print("Invalid priority. Please enter high, medium, or low.")
         

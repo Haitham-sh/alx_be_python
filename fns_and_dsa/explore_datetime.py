@@ -1,7 +1,10 @@
 from datetime import datetime, timedelta
 
-current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-print("Current date and time:", current_date)
+def display_current_datetime():
+    current_datetime = datetime.now()
+    print("Current date and time:", current_datetime.strftime("%Y-%m-%d %H:%M:%S"))
+
+display_current_datetime()
 
 added_days = int(input("Enter the number of days to add to the current date: "))
 

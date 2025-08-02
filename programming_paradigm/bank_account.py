@@ -14,6 +14,6 @@ class BankAccount:
             print(f"Withdrew: ${amount}. ")
         else:
             print("Insufficient funds.")
-    def display_balance(self, amount):
-        self.amount = amount
-        print(f"Current balance: ${self.amount}.")
+    def display_balance(self,):
+        self.current_balance = self.account_balance
+        print(f"Current balance: ${self.current_balance}.")

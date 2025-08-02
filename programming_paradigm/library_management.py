@@ -4,38 +4,33 @@ class Book:
         self.author = author
         self._is_checked_out = False
 
-class Library:
+    def check_out(self):
+        self._is_checked_out = True
+
+    def return_book(self):
+        self._is_checked_out = False
+
+    def is_available(self):
+        return not self._is_checked_out
+
+class Library():
     def __init__(self):
-        self._books = [
-            Book("check_out_book", "Aldous Huxley"),
-            Book("1984", "George Orwell"),
-            
-        ]
-
-        def return_book(self):
-            pass
-
-        
+        self._books = []
 
     def add_book(self, book):
-        """Add a book to the library."""
-        self.books.append(book)
-
-    def check_out(self, book):
-        """Check out a book from the library."""
-        if book in self.books and not book._is_checked_out:
-            book._is_checked_out = True
-            return True
-        return False
-
-    def return_book(self, book):
-        """Return a checked-out book to the library."""
-        if book in self.books and book._is_checked_out:
-            book._is_checked_out = False
-            return True
-        return False
-
-    def list_books(self):
-        """List all books in the library."""
-        return [book.title for book in self.books]
-    
+        self._books.append(book)
+    def check_out_book(self, title):
+        for book in self._books:
+            if book.title == title and book.is_available():
+                book.check_out()
+                return f"You have checked out '{title}'."
+        return f"'{title}' is not available for checkout."
+    def return_book(self, title):
+        for book in self._books:
+            if book.title == title and not book.is_available():
+                book.return_book()
+                return f"You have returned '{title}'."
+        return f"'{title}' was not checked out."
+    def list_available_books(self):
+        available_books = [book.title for book in self._books if book.is_available()]
+        return available_books if available_books else "No books are currently available."
